@@ -1,5 +1,6 @@
 from functools import reduce
-import math
+import math 
+import time # Añadido para poder usar time.sleep() y ver los resultados de cada ejercicio de manera pausada.
 
 
 print("\nEJERCICIO 1")
@@ -10,11 +11,12 @@ def frecuencia_letras(cadena):
     frecuencias = {}
     for letra in cadena:
         if letra != " ":
-            letra = letra.lower()  # opcional: ignorar mayusculas
+            letra = letra.lower()  # ignorar mayusculas
             frecuencias[letra] = frecuencias.get(letra, 0) + 1
     return frecuencias
 
 print(frecuencia_letras("Hola Mundo"))
+time.sleep(1)
 
 
 print("\nEJERCICIO 2")
@@ -23,6 +25,7 @@ print("\nEJERCICIO 2")
 numeros = [1, 2, 3, 4, 5]
 dobles = list(map(lambda x: x * 2, numeros))
 print(dobles)
+time.sleep(1)
 
 
 print("\nEJERCICIO 3")
@@ -33,6 +36,7 @@ def palabras_que_contienen(lista_palabras, objetivo):
     return [palabra for palabra in lista_palabras if objetivo in palabra]
 
 print(palabras_que_contienen(["python", "java", "javascript", "c++"], "java"))
+time.sleep(1)
 
 
 print("\nEJERCICIO 4")
@@ -42,6 +46,7 @@ def diferencia_listas(lista1, lista2):
     return list(map(lambda x, y: x - y, lista1, lista2))
 
 print(diferencia_listas([10, 20, 30], [1, 2, 3]))
+time.sleep(1)
 
 
 print("\nEJERCICIO 5")
@@ -59,6 +64,7 @@ def media_y_estado(numeros, nota_aprobado=5):
 
 print(media_y_estado([4, 6, 8, 5]))
 print(media_y_estado([3, 4, 2], nota_aprobado=6))
+time.sleep(1)
 
 
 print("\nEJERCICIO 6")
@@ -72,6 +78,7 @@ def factorial(n):
     return n * factorial(n - 1)
 
 print(factorial(5))
+time.sleep(1)
 
 
 print("\nEJERCICIO 7")
@@ -81,6 +88,7 @@ def tuplas_a_strings(lista_tuplas):
     return list(map(lambda t: " ".join(str(x) for x in t), lista_tuplas))
 
 print(tuplas_a_strings([("Hola", "mundo"), (1, 2, 3)]))
+time.sleep(1)
 
 
 print("\nEJERCICIO 8")
@@ -88,8 +96,10 @@ print("\nEJERCICIO 8")
 # dividirlos. Si el usuario ingresa un valor no numerico o intenta dividir por
 # cero, maneja esas excepciones de manera adecuada y muestra un mensaje indicando
 # si la division fue exitosa o no.
-def dividir(a, b):
+def dividir():
     try:
+        a = input("Introduce el primer numero: ")
+        b = input("Introduce el segundo numero: ")
         resultado = float(a) / float(b)
         print(f"Division exitosa: {resultado}")
     except ValueError:
@@ -97,10 +107,8 @@ def dividir(a, b):
     except ZeroDivisionError:
         print("Error: No se puede dividir por cero.")
 
-# Ejemplo de uso
-dividir(10, 2)
-dividir(10, 0)
-dividir("hola", 2)
+dividir()
+time.sleep(1)
 
 
 print("\nEJERCICIO 9")
@@ -113,6 +121,7 @@ def filtrar_mascotas(lista_mascotas):
     return list(filter(lambda m: m not in prohibidas, lista_mascotas))
 
 print(filtrar_mascotas(["Perro", "Gato", "Tigre", "Conejo", "Oso"]))
+time.sleep(1)
 
 
 print("\nEJERCICIO 10")
@@ -132,25 +141,24 @@ try:
     print(promedio([]))
 except ListaVaciaError as e:
     print(f"Error: {e}")
+time.sleep(1)
 
 
 print("\nEJERCICIO 11")
 # Enunciado: Escribe un programa que pida al usuario que introduzca su edad.
 # Si el usuario ingresa un valor no numerico o un valor fuera del rango esperado
 # (por ejemplo, menor que 0 o mayor que 120), maneja las excepciones adecuadamente.
-def pedir_edad(edad):
+def pedir_edad():
     try:
-        edad = int(edad)
+        edad = int(input("Introduce tu edad: "))
         if edad < 0 or edad > 120:
             raise ValueError("La edad debe estar entre 0 y 120.")
         print(f"Edad valida: {edad}")
     except ValueError as e:
         print(f"Error: {e}")
 
-# Ejemplo de uso
-pedir_edad(25)
-pedir_edad(-5)
-pedir_edad("hola")
+pedir_edad()
+time.sleep(1)
 
 
 print("\nEJERCICIO 12")
@@ -160,6 +168,7 @@ def longitudes_palabras(frase):
     return list(map(len, frase.split()))
 
 print(longitudes_palabras("Hola mundo Python"))
+time.sleep(1)
 
 
 print("\nEJERCICIO 13")
@@ -167,10 +176,11 @@ print("\nEJERCICIO 13")
 # una lista de tuplas con cada letra en mayusculas y minusculas. Las letras no
 # pueden estar repetidas. Usa la funcion map().
 def mayus_minus(caracteres):
-    unicos = set(caracteres.lower())  # eliminamos repetidos
+    unicos = sorted(set(caracteres.lower()))  # eliminamos repetidos y ordenamos
     return list(map(lambda c: (c.upper(), c.lower()), unicos))
 
 print(mayus_minus("aAbBcC"))
+time.sleep(1)
 
 
 print("\nEJERCICIO 14")
@@ -180,6 +190,7 @@ def palabras_que_empiezan(lista, letra):
     return list(filter(lambda p: p.lower().startswith(letra.lower()), lista))
 
 print(palabras_que_empiezan(["Python", "Java", "Javascript", "C++"], "j"))
+time.sleep(1)
 
 
 print("\nEJERCICIO 15")
@@ -187,6 +198,7 @@ print("\nEJERCICIO 15")
 numeros = [1, 2, 3, 4]
 resultado = list(map(lambda x: x + 3, numeros))
 print(resultado)
+time.sleep(1)
 
 
 print("\nEJERCICIO 16")
@@ -197,6 +209,7 @@ def palabras_largas(cadena, n):
     return list(filter(lambda p: len(p) > n, cadena.split()))
 
 print(palabras_largas("El gato negro corre rapido", 4))
+time.sleep(1)
 
 
 print("\nEJERCICIO 17")
@@ -207,6 +220,7 @@ def digitos_a_numero(digitos):
     return reduce(lambda acc, d: acc * 10 + d, digitos)
 
 print(digitos_a_numero([5, 7, 2]))
+time.sleep(1)
 
 
 print("\nEJERCICIO 18")
@@ -222,6 +236,7 @@ estudiantes = [
 
 aprobados = list(filter(lambda e: e["calificacion"] >= 90, estudiantes))
 print(aprobados)
+time.sleep(1)
 
 
 print("\nEJERCICIO 19")
@@ -230,14 +245,16 @@ print("\nEJERCICIO 19")
 numeros = [1, 2, 3, 4, 5, 6, 7]
 impares = list(filter(lambda x: x % 2 != 0, numeros))
 print(impares)
+time.sleep(1)
 
 
 print("\nEJERCICIO 20")
 # Enunciado: Para una lista con elementos de tipo integer y string, obten una
 # nueva lista solo con los valores int. Usa la funcion filter().
-mixta = [1, "hola", 3.5, 4, "mundo", 7]
-solo_int = list(filter(lambda x: isinstance(x, int), mixta))
+mixta = [1, "hola", 3.5, 4, "mundo", 7, True, False]
+solo_int = list(filter(lambda x: type(x) is int, mixta))  # evita capturar bool
 print(solo_int)
+time.sleep(1)
 
 
 print("\nEJERCICIO 21")
@@ -245,6 +262,7 @@ print("\nEJERCICIO 21")
 # una funcion lambda.
 cubo = lambda x: x ** 3
 print(cubo(5))
+time.sleep(1)
 
 
 print("\nEJERCICIO 22")
@@ -253,6 +271,7 @@ print("\nEJERCICIO 22")
 numeros = [1, 2, 3, 4]
 producto = reduce(lambda x, y: x * y, numeros)
 print(producto)
+time.sleep(1)
 
 
 print("\nEJERCICIO 23")
@@ -260,6 +279,7 @@ print("\nEJERCICIO 23")
 palabras = ["Hola", "mundo", "Python"]
 resultado = reduce(lambda x, y: x + " " + y, palabras)
 print(resultado)
+time.sleep(1)
 
 
 print("\nEJERCICIO 24")
@@ -268,6 +288,7 @@ print("\nEJERCICIO 24")
 numeros = [100, 20, 30, 10]
 diferencia = reduce(lambda x, y: x - y, numeros)
 print(diferencia)  # 100-20-30-10 = 40
+time.sleep(1)
 
 
 print("\nEJERCICIO 25")
@@ -277,6 +298,7 @@ def contar_caracteres(cadena):
     return len(cadena)
 
 print(contar_caracteres("Hola mundo"))
+time.sleep(1)
 
 
 print("\nEJERCICIO 26")
@@ -284,6 +306,7 @@ print("\nEJERCICIO 26")
 # dos numeros dados.
 resto = lambda a, b: a % b
 print(resto(17, 5))
+time.sleep(1)
 
 
 print("\nEJERCICIO 27")
@@ -294,6 +317,7 @@ def calcular_promedio(lista):
     return sum(lista) / len(lista)
 
 print(calcular_promedio([10, 20, 30]))
+time.sleep(1)
 
 
 print("\nEJERCICIO 28")
@@ -308,6 +332,7 @@ def primer_duplicado(lista):
     return None  # no hay duplicados
 
 print(primer_duplicado([1, 2, 3, 2, 4, 5]))
+time.sleep(1)
 
 
 print("\nEJERCICIO 29")
@@ -321,6 +346,7 @@ def enmascarar(valor):
 
 print(enmascarar("1234567890"))
 print(enmascarar(987654321))
+time.sleep(1)
 
 
 print("\nEJERCICIO 30")
@@ -331,6 +357,7 @@ def son_anagramas(palabra1, palabra2):
 
 print(son_anagramas("amor", "roma"))
 print(son_anagramas("hola", "adios"))
+time.sleep(1)
 
 
 print("\nEJERCICIO 31")
@@ -338,19 +365,20 @@ print("\nEJERCICIO 31")
 # nombres y luego un nombre para buscar en esa lista. Si el nombre esta en la
 # lista, imprime un mensaje indicando que fue encontrado; de lo contrario,
 # lanza una excepcion.
-def buscar_nombre(lista_nombres, nombre_buscar):
+def buscar_nombre():
+    lista_nombres = input("Introduce una lista de nombres separados por comas: ")
+    nombre_buscar = input("Introduce el nombre a buscar: ")
     nombres = [n.strip() for n in lista_nombres.split(",")]
     if nombre_buscar in nombres:
         print(f"!{nombre_buscar} fue encontrado!")
     else:
         raise ValueError(f"El nombre '{nombre_buscar}' no esta en la lista.")
 
-# Ejemplo de uso
 try:
-    buscar_nombre("Ana, Luis, Maria, Pedro", "Maria")
-    buscar_nombre("Ana, Luis, Maria, Pedro", "Carlos")
+    buscar_nombre()
 except ValueError as e:
     print(f"Error: {e}")
+time.sleep(1)
 
 
 print("\nEJERCICIO 32")
@@ -371,6 +399,7 @@ empleados = [
 
 print(buscar_puesto("Ana Garcia", empleados))
 print(buscar_puesto("Pedro Lopez", empleados))
+time.sleep(1)
 
 
 print("\nEJERCICIO 33")
@@ -378,6 +407,7 @@ print("\nEJERCICIO 33")
 # listas dadas.
 suma_listas = lambda lista1, lista2: list(map(lambda x, y: x + y, lista1, lista2))
 print(suma_listas([1, 2, 3], [4, 5, 6]))
+time.sleep(1)
 
 
 print("\nEJERCICIO 34")
@@ -421,6 +451,7 @@ arbol.nueva_rama()
 arbol.nueva_rama()
 arbol.quitar_rama(2)
 print(arbol.info_arbol())
+time.sleep(1)
 
 
 print("\nEJERCICIO 35")
@@ -459,6 +490,7 @@ bob.agregar_dinero(20)
 bob.agregar_dinero(30)
 bob.transferir_dinero(alicia, 80)
 alicia.retirar_dinero(50)
+time.sleep(1)
 
 
 print("\nEJERCICIO 36")
@@ -492,14 +524,15 @@ texto = "el gato negro y el perro blanco"
 print(procesar_texto(texto, "contar"))
 print(procesar_texto(texto, "reemplazar", "gato", "felino"))
 print(procesar_texto(texto, "eliminar", "el"))
+time.sleep(1)
 
 
 print("\nEJERCICIO 37")
 # Enunciado: Genera un programa que nos indique si es de noche, de dia o de
 # tarde segun la hora proporcionada por el usuario.
-def momento_del_dia(hora):
+def momento_del_dia():
     try:
-        hora = int(hora)
+        hora = int(input("Introduce la hora (0-23): "))
         if not 0 <= hora <= 23:
             print("Hora fuera de rango")
             return
@@ -512,11 +545,8 @@ def momento_del_dia(hora):
     except ValueError:
         print("Debes introducir un numero entero")
 
-# Ejemplo de uso
-momento_del_dia(10)
-momento_del_dia(15)
-momento_del_dia(22)
-momento_del_dia(25)
+momento_del_dia()
+time.sleep(1)
 
 
 print("\nEJERCICIO 38")
@@ -540,6 +570,7 @@ def calificacion_texto(nota):
         return "Nota fuera de rango"
 
 print(calificacion_texto(85))
+time.sleep(1)
 
 
 print("\nEJERCICIO 39")
@@ -563,19 +594,20 @@ def calcular_area(figura, datos):
 print(calcular_area("rectangulo", (5, 3)))
 print(calcular_area("circulo", (4,)))
 print(calcular_area("triangulo", (6, 4)))
+time.sleep(1)
 
 
 print("\nEJERCICIO 40")
 # Enunciado: Escribe un programa en Python que utilice condicionales para
 # determinar el monto final de una compra en una tienda en linea, despues de
 # aplicar un descuento.
-def calcular_precio_final(precio, tiene_cupon, descuento=0):
+def calcular_precio_final():
     try:
-        precio = float(precio)
-        tiene_cupon = str(tiene_cupon).lower()
+        precio = float(input("Introduce el precio del producto: "))
+        tiene_cupon = input("¿Tienes cupon de descuento? (si/no): ").lower()
 
         if tiene_cupon in ["si", "s"]:
-            descuento = float(descuento)
+            descuento = float(input("Introduce el valor del descuento: "))
             if descuento > 0:
                 precio_final = precio - descuento
                 if precio_final < 0:
@@ -589,9 +621,4 @@ def calcular_precio_final(precio, tiene_cupon, descuento=0):
     except ValueError:
         print("Error: introduce valores numericos validos.")
 
-# Ejemplo de uso
-calcular_precio_final(100, "si", 20)
-calcular_precio_final(50, "no")
-calcular_precio_final(80, "si", 0)
-
-print("\n===== FIN DE TODOS LOS EJERCICIOS =====")
+calcular_precio_final()
